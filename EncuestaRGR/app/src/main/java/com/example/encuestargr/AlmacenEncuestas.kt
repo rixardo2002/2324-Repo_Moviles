@@ -4,7 +4,7 @@ object AlmacenEncuestas {
 
     var encuestas = ArrayList<Encuesta>()
 
-    fun aniadirPersona(e: Encuesta){
+    fun aniadirEncuesta(e: Encuesta){
         encuestas.add(e)
     }
 }
