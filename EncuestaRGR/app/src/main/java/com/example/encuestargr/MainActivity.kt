@@ -17,101 +17,109 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mostrarSeekBar()
+            binding.bttnVal.setOnClickListener(){
+                var seleccionado = rellenarCampos()
+                mostrarSeekBar()
+                if (seleccionado){
+                    listaEncuestas = crearEncuesta()
+                }else{
+                    Toast.makeText(this, "Tienes que rellenar todos los campos", Toast.LENGTH_SHORT).show()
+                }
+                limpiar()
 
-        binding.bttnVal.setOnClickListener(){
-            listaEncuestas = crearEncuesta()
-            limpiar()
-            binding.txtMLine.setText("")
-
-        }
+            }
 
         binding.bttnR.setOnClickListener(){
             listaEncuestas.clear()
             limpiar()
-            binding.txtMLine.setText("")
+
 
         }
         binding.bttnC.setOnClickListener(){
-            var cuantas = listaEncuestas.size
-            Toast.makeText(this, cuantas, Toast.LENGTH_SHORT).show()
+            val cuantas = listaEncuestas.size
+            val mensaje = "Número de encuestas creadas: $cuantas"
+            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
         }
 
         binding.bttnR2.setOnClickListener(){
 
+            val textoEncuestas = StringBuilder()
+
             for (encuesta in listaEncuestas) {
-                binding.txtMLine.setText(encuesta.toString())
+                textoEncuestas.append(encuesta.toString()).append("\n")
             }
+
+            binding.txtMLine.setText(textoEncuestas)
         }
 
     }
+    private fun rellenarCampos():Boolean{
+        var seleccionado = false
+        val sistemaOperativoSeleccionado = binding.radButW.isChecked || binding.radButM.isChecked || binding.radButL.isChecked
+        val especialidadSeleccionada = binding.radButDAM.isChecked || binding.radButDAW.isChecked || binding.radButA.isChecked
 
+        if (sistemaOperativoSeleccionado && especialidadSeleccionada) {
+            seleccionado = true
+        } else {
+            Toast.makeText(this, "Tienes que rellenar todos los campos", Toast.LENGTH_SHORT).show()
+        }
+        return seleccionado
+    }
 
     private fun eleccionSistOperativo(): String {
+
         var seleccion = "Desconocido"
-        var seleccionado = false
-
-
-        while (!seleccionado) {
-
-            if (binding.radButM.isChecked || binding.radButW.isChecked || binding.radButL.isChecked) {
-                seleccionado = true  // Marca la variable como verdadera para salir del bucle
-
-                if (binding.radButM.isChecked) {
-                    seleccion = "Mac"
-                } else if (binding.radButW.isChecked) {
-                    seleccion = "Windows"
-                } else if (binding.radButL.isChecked) {
-                    seleccion = "Linux"
-                }
-            }else{
-                Toast.makeText(this, "Debes seleccionar al menos una opción", Toast.LENGTH_SHORT).show()
-            }
+        if (binding.radButM.isChecked) {
+            seleccion = "Mac"
+        } else if (binding.radButW.isChecked) {
+            seleccion = "Windows"
+        } else if (binding.radButL.isChecked) {
+            seleccion = "Linux"
         }
+
+
         return seleccion
     }
     private fun eleccionEspecialidad(): String {
 
-        var seleccionado = false
         var especialidad = "Desconocida"
-        while (!seleccionado) {
 
-            if (binding.radButDAM.isChecked || binding.radButDAW.isChecked || binding.radButA.isChecked) {
-                seleccionado = true  // Marca la variable como verdadera para salir del bucle
-                if (binding.radButDAM.isChecked) {
-                    especialidad = "DAM"
-                } else if (binding.radButDAW.isChecked) {
-                    especialidad = "DAW"
-                } else if (binding.radButA.isChecked) {
-                    especialidad = "ASIR"
-                }
-
-            }else{
-                Toast.makeText(this, "Debes seleccionar al menos una opción", Toast.LENGTH_SHORT).show()
-            }
+        if (binding.radButDAM.isChecked) {
+            especialidad = "DAM"
+        } else if (binding.radButDAW.isChecked) {
+            especialidad = "DAW"
+        } else if (binding.radButA.isChecked) {
+            especialidad = "ASIR"
         }
+
         return especialidad
     }
     private fun eleccionHoras(): Int {
-        var progreso = 0
+        return binding.seekBar.progress
+    }
 
+    private fun mostrarSeekBar(){
         binding.seekBar.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                progreso = progress
-                binding.txtViexNum.text = progreso.toString()
+
+                var progreso = binding.seekBar.progress
+
+                binding.txtViexNum.setText(progreso.toString())
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
+            override fun onStartTrackingTouch(seek: SeekBar) {
+
             }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
+            override fun onStopTrackingTouch(seek: SeekBar) {
+
+                var progreso = binding.seekBar.progress
+                binding.txtViexNum.setText(progreso.toString())
             }
 
         })
-
-        return progreso
     }
 private fun crearEncuesta(): ArrayList<Encuesta>{
     var nombre: String
@@ -132,18 +140,13 @@ private fun crearEncuesta(): ArrayList<Encuesta>{
     return listaEncuestas
 }
     private fun limpiar() {
-        // Limpia el contenido del EditText (Plain Text)
-        binding.editTxtN.text.clear()
 
-        // Deselecciona los RadioButtons
-        binding.radButM.isChecked = false
-        binding.radButW.isChecked = false
-        binding.radButL.isChecked = false
-        binding.radButDAM.isChecked = false
-        binding.radButDAW.isChecked = false
-        binding.radButA.isChecked = false
+        binding.editTxtN.text.clear()
         binding.switch1.isChecked = false
         binding.seekBar.progress = 0
-    }
+        binding.radioGroupSistemaOperativo.clearCheck()
+        binding.radioGroupEspecialidad.clearCheck()
+        binding.txtMLine.setText("")
 
+    }
 }
