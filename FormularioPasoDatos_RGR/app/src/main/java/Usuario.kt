@@ -6,4 +6,9 @@ val nombre:String,
     val gmail:String,
     val contrasenia:String
 
-)
+
+){
+    override fun toString(): String {
+        return "$nombre , $apellido , $DNI , $gmail , $contrasenia"
+    }
+}
