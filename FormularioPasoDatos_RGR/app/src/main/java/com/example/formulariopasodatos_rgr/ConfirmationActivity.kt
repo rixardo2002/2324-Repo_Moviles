@@ -32,7 +32,7 @@ class ConfirmationActivity : AppCompatActivity() {
             // Mostrar la lista de usuarios en el MultiLineText
             val listaUsuariosText = StringBuilder()
             for (user in listaUsuarios) {
-                listaUsuariosText.append(user.toString()).append("\n")
+                listaUsuariosText.append(user.toString()).append("\n").append("\n")
             }
             binding.editTextTextMultiLine.setText(listaUsuariosText.toString())
         }
