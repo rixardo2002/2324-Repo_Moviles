@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FormularioPasoDatos_RGR</string>
+    <string name="nombre">Name</string>
+    <string name="Formulario">Form</string>
+    <string name="dni">DNI</string>
+    <string name="apellido">Surname</string>
+    <string name="gmail">Gmail</string>
+    <string name="contra">Password</string>
+    <string name="confirmacion">Confirm Password</string>
+    <string name="boton1">Sign In</string>
+    <string name="boton2">Return</string>
+</resources>

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FormularioPasoDatos_RGR</string>
+    <string name="nombre">Nombre</string>
+    <string name="Formulario">Formulario</string>
+    <string name="dni">DNI</string>
+    <string name="apellido">Apellido</string>
+    <string name="gmail">Gmail</string>
+    <string name="contra">Contraseña</string>
+    <string name="confirmacion">Confirmación Contraseña</string>
+    <string name="boton1">Registrarse</string>
+    <string name="boton2">Volver</string>
 </resources>

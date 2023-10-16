@@ -1,3 +1,5 @@
+import java.io.Serializable
+
 data class Usuario(
 
 val nombre:String,
@@ -7,7 +9,7 @@ val nombre:String,
     val contrasenia:String
 
 
-){
+): Serializable {
     override fun toString(): String {
         return "$nombre , $apellido , $DNI , $gmail , $contrasenia"
     }
