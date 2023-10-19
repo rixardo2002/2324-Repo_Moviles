@@ -2,18 +2,22 @@ package com.example.juego3enrayargr
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.juego3enrayargr.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var contador=1
+    var ganadas1=0
+    var ganadas2=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            pulsarBotonesJug()
+        pulsarBotonesJug()
+
     }
 
     private fun pulsarBotonesJug(){
@@ -28,34 +32,44 @@ class MainActivity : AppCompatActivity() {
         for (imagen in imagenes) {
 
                 imagen.setOnClickListener() {
-                    if (imagen.drawable.constantState == ContextCompat.getDrawable(
-                            this,
-                            R.drawable.inicio
-                        )?.constantState
+                    if (imagen.drawable.constantState == ContextCompat.getDrawable(this, R.drawable.inicio)?.constantState
                         && !juegoterminado) {
                         if (contador % 2 != 0) {
 
                             imagen.setImageResource(R.drawable.naruto)
-                            contador++
-                        } else {
 
+                        } else {
                             imagen.setImageResource(R.drawable.sasuke)
-                            contador++
+
                         }
+                        contador++
                     }
 
-                    if (jugadasGanadorasJugador1()) {
-                        binding.txtView3.text = "El ganador del juego es JUGADOR 1 !!!!!"
-                        juegoterminado=true
+                    if (jugadasGanadorasJugador1() && !juegoterminado) {
 
-                    } else if (jugadasGanadorasJugador2()) {
-                        binding.txtView3.text = "El ganador del juego es JUGADOR 2 !!!!!"
-                        juegoterminado=true
+                        Toast.makeText(this, "El ganador es JUGADOR 1 !!!!", Toast.LENGTH_SHORT).show()
 
+                        juegoterminado=true
+                        ganadas1++
+                        binding.cont1.setText(ganadas1.toString())
+
+                    } else if (jugadasGanadorasJugador2() && !juegoterminado) {
+                        Toast.makeText(this, "El ganador es JUGADOR 2 !!!!", Toast.LENGTH_SHORT).show()
+                        juegoterminado=true
+                        ganadas2++
+                        binding.cont2.setText(ganadas2.toString())
 
                     } else if (contador > 9) {
-                        binding.txtView3.text = "El juego ha terminado en empate."
+                        Toast.makeText(this, "Es un EMPATE", Toast.LENGTH_SHORT).show()
+
                         juegoterminado=true
+                    }
+                    if (juegoterminado){
+                        binding.button.setOnClickListener(){
+                            ponerPordefecto()
+                            contador=1
+                            juegoterminado=false
+                        }
                     }
                 }
         }
@@ -106,6 +120,7 @@ class MainActivity : AppCompatActivity() {
         )
         for (imagen in imagenes){
             imagen.setImageResource(R.drawable.inicio)
+            
         }
     }
 }
