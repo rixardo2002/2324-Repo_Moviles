@@ -13,14 +13,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
             pulsarBotonesJug()
-
-
-
     }
-
-
 
     private fun pulsarBotonesJug(){
         //Cuando el contador sea 1,3,5,7,9 serás las jugadas del jugador 1
@@ -30,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             binding.imageButton10,binding.imageButton11,binding.imageButton12,
             binding.imageButton20,binding.imageButton21,binding.imageButton22
         )
-
 
         for (imagen in imagenes) {
 
@@ -43,13 +36,10 @@ class MainActivity : AppCompatActivity() {
                         if (contador % 2 != 0) {
 
                             imagen.setImageResource(R.drawable.naruto)
-
                             contador++
-
                         } else {
 
                             imagen.setImageResource(R.drawable.sasuke)
-
                             contador++
                         }
                     }
@@ -68,13 +58,9 @@ class MainActivity : AppCompatActivity() {
                         juegoterminado=true
                     }
                 }
-
         }
 
     }
-
-
-
 
     private fun jugadasGanadorasJugador1(): Boolean{
         val jugada00 = binding.imageButton00.drawable?.constantState == ContextCompat.getDrawable(this, R.drawable.naruto)?.constantState
