@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rojo">#FF6C0000</color>
+    <color name="rojoBrillante">#FFEC0101</color>
+    <color name="azul">#FF00839A</color>
+    <color name="azulBrillante">#FF00D9FF</color>
+    <color name="verde">#FF207701</color>
+    <color name="verdeBrillante">#FF3FEC00</color>
+    <color name="naranja">#FF974E00</color>
+    <color name="naranjaBrillante">#FFFF8400</color>
+
+</resources>

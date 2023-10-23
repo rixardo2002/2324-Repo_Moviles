@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun pulsarBotonesJug(){
-        //Cuando el contador sea 1,3,5,7,9 serás las jugadas del jugador 1
+
         var juegoterminado=false;
         val imagenes = arrayOf(
             binding.imageButton00,binding.imageButton01,binding.imageButton02,
@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         for (imagen in imagenes) {
 
                 imagen.setOnClickListener() {
-                    if (imagen.drawable.constantState == ContextCompat.getDrawable(this, R.drawable.inicio)?.constantState
+                    if (imagen.drawable.constantState == ContextCompat.getDrawable(this,
+                            R.drawable.inicio)?.constantState
                         && !juegoterminado) {
                         if (contador % 2 != 0) {
 
