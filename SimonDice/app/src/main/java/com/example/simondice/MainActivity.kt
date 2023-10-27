@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         simonButtons.add(buttonVerde)
         simonButtons.add(buttonAzul)
         simonButtons.add(buttonAmarillo)
+
         for (button in simonButtons) {
             button.setOnClickListener {
                 if (isSimonPlaying) {

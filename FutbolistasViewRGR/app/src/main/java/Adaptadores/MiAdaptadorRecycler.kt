@@ -18,11 +18,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.futbolistasviewrgr.MainActivity
+import com.example.futbolistasviewrgr.MainActivity2
 
 import com.example.futbolistasviewrgr.R
 
 
-class MiAdaptadorRecycler (var personajes : ArrayList<Futbolista>, var  context: Context) : RecyclerView.Adapter<MiAdaptadorRecycler.ViewHolder>() {
+class MiAdaptadorRecycler (var futbolistas : ArrayList<Futbolista>, var  context: Context) : RecyclerView.Adapter<MiAdaptadorRecycler.ViewHolder>() {
 
     companion object {
         //Esta variable estática nos será muy útil para saber cual está marcado o no.
@@ -85,11 +87,8 @@ class MiAdaptadorRecycler (var personajes : ArrayList<Futbolista>, var  context:
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //Esto solo se asocia la primera vez que se llama a la clase, en el método onCreate de la clase que contiene a esta.
         //Por eso no hace falta que hagamos lo que hacíamos en el método getView de los adaptadores para las listsViews.
-        //val nombrePersonaje = view.findViewById(R.id.txtNombre) as TextView
-        //val tipoPersonaje = view.findViewById(R.id.txtTipo) as TextView
-        //val avatar = view.findViewById(R.id.imgImagen) as ImageView
-
         //Como en el ejemplo general de las listas (ProbandoListas) vemos que se puede inflar cada elemento con una card o con un layout.
+
         val nombreFutbolistas = view.findViewById(R.id.txtNombre) as TextView
         val apellidos = view.findViewById(R.id.txtApellido) as TextView
         val equipo = view.findViewById(R.id.imgImagen) as ImageView
@@ -120,38 +119,30 @@ class MiAdaptadorRecycler (var personajes : ArrayList<Futbolista>, var  context:
             //comparo la posición y pinto en el color elegido(blue)
             //está implementado de dos maneras, uan deprecated y actual.
 
-
-//            itemView.setOnLongClickListener(View.OnLongClickListener() {
-//                Log.e("ACSC0","long click")
-//            }
+            if (pos == MiAdaptadorRecycler.seleccionado) {
+                nombreFutbolistas.setTextColor(ContextCompat.getColor(context, R.color.blue))
+                apellidos.setTextColor(ContextCompat.getColor(context, R.color.blue))
+            } else {
+                nombreFutbolistas.setTextColor(ContextCompat.getColor(context, R.color.black))
+                apellidos.setTextColor(ContextCompat.getColor(context, R.color.black))
+            }
 
             //Se levanta una escucha para cada item. Si pulsamos el seleccionado pondremos la selección a -1, (deselecciona)
             // en otro caso será el nuevo sleccionado.
             itemView.setOnClickListener {
-                if (pos == MiAdaptadorRecycler.seleccionado) {
+                if (pos == MiAdaptadorRecycler.seleccionado){
                     MiAdaptadorRecycler.seleccionado = -1
-                } else {
+                }
+                else {
                     MiAdaptadorRecycler.seleccionado = pos
-                    Log.e(
-                        "ACSC0",
-                        "Seleccionado: ${
-                            Almacen.futbolistas.get(MiAdaptadorRecycler.seleccionado).toString()
-                        }"
-                    )
+                    Log.e("ACSC0", "Seleccionado: ${Almacen.futbolistas.get(MiAdaptadorRecycler.seleccionado).toString()}")
                 }
                 //Con la siguiente instrucción forzamos a recargar el viewHolder porque han cambiado los datos. Así pintará al seleccionado.
 
                 miAdaptadorRecycler.notifyDataSetChanged()
 
-//                val intent = Intent(context, MainActivity2::class.java)
-//
-//                context.startActivity(intent)
 
-                Toast.makeText(
-                    context,
-                    "Valor seleccionado " + MiAdaptadorRecycler.seleccionado.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(context, "Valor seleccionado " +  MiAdaptadorRecycler.seleccionado.toString(), Toast.LENGTH_SHORT).show()
 
             }
             itemView.setOnLongClickListener(View.OnLongClickListener {
@@ -164,7 +155,12 @@ class MiAdaptadorRecycler (var personajes : ArrayList<Futbolista>, var  context:
                 true //Tenemos que devolver un valor boolean.
             })
 
-
+            btnDetalleEspcifico.setOnClickListener {
+                Log.e("Fernando","Has pulsado el botón de ${futs}")
+                var inte : Intent = Intent(MainActivity.contextoPrincipal, MainActivity2::class.java)
+                inte.putExtra("obj",futs)
+                ContextCompat.startActivity(MainActivity.contextoPrincipal, inte, null)
+            }
         }
     }
 }
