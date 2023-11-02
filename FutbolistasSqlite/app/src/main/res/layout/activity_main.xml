@@ -24,7 +24,7 @@
         android:id="@+id/btnListar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="listarFutbolistas"
+        android:onClick="listarPersonas"
         android:text="Listar personas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +48,20 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <EditText
+        android:id="@+id/edNombre"
+        android:layout_width="299dp"
+        android:layout_height="52dp"
+        android:ems="10"
+        android:hint="Nombre..."
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/edDNI"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <EditText
         android:id="@+id/edApellido"
-        android:layout_width="297dp"
+        android:layout_width="144dp"
         android:layout_height="50dp"
         android:ems="10"
         android:hint="Apellido..."
@@ -57,32 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/edNombre"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
-
-    <EditText
-        android:id="@+id/edEquipo"
-        android:layout_width="296dp"
-        android:layout_height="47dp"
-        android:ems="10"
-        android:hint="Equipo..."
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/edNombre"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
-
-    <EditText
-        android:id="@+id/edNombre"
-        android:layout_width="299dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="4dp"
-        android:ems="10"
-        android:hint="Nombre..."
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/edDNI"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -99,7 +86,7 @@
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="addFutbolista"
+            android:onClick="addPersona"
             android:text="Añadir"
             android:textSize="12sp" />
 
@@ -107,7 +94,7 @@
             android:id="@+id/btnBuscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="buscarFutbolista"
+            android:onClick="buscarPersona"
             android:text="Buscar"
             android:textSize="12sp" />
 
@@ -115,7 +102,7 @@
             android:id="@+id/btnBorrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="delFutbolistas"
+            android:onClick="delPersona"
             android:text="Borrar"
             android:textSize="12sp" />
 
@@ -123,21 +110,22 @@
             android:id="@+id/btnEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="modFutbolista"
+            android:onClick="modPersona"
             android:text="Editar"
             android:textSize="12sp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/irVentana"
+    <EditText
+        android:id="@+id/edEquipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Siguiente"
+        android:ems="10"
+        android:hint="Equipo..."
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.871"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/edApellido"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.915" />
+        app:layout_constraintVertical_bias="0.291" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

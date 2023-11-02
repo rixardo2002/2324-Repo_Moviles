@@ -19,7 +19,7 @@ object Conexion {
         this.DATABASE_NAME = nombreBD
     }
 
-    fun addPersona(contexto: AppCompatActivity, p: Futbolista):Long{
+    fun addFutbolista(contexto: AppCompatActivity, p: Futbolista):Long{
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.writableDatabase //habilito la BBDD para escribir en ella, tambié deja leer.
         val registro = ContentValues() //objeto de kotlin, contenido de valores, un Map. Si haceis ctrl+clic lo veis.
@@ -32,7 +32,7 @@ object Conexion {
         return codigo
     }
 
-    fun delPersona(contexto: AppCompatActivity, id: String):Int{
+    fun delFutbolista(contexto: AppCompatActivity, id: String):Int{
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.writableDatabase
         //val cant = bd.delete("personas", "dni='${dni}'", null)
@@ -41,7 +41,7 @@ object Conexion {
         return cant
     }
 
-    fun modPersona(contexto:AppCompatActivity, id:String, p:Futbolista):Int {
+    fun modFutbolista(contexto:AppCompatActivity, id:String, p:Futbolista):Int {
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.writableDatabase
         val registro = ContentValues()
@@ -59,7 +59,7 @@ object Conexion {
         return cant
     }
 
-    fun buscarPersona(contexto: AppCompatActivity, id:String):Futbolista? {
+    fun buscarFutbolista(contexto: AppCompatActivity, id:String):Futbolista? {
         var p:Futbolista? = null //si no encuentra ninguno vendrá null, por eso la ? y también en la devolución de la función.
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.readableDatabase
@@ -80,7 +80,7 @@ object Conexion {
         return p
     }
 
-    fun obtenerPersonas(contexto: AppCompatActivity):ArrayList<Futbolista>{
+    fun obtenerFutbolistas(contexto: AppCompatActivity):ArrayList<Futbolista>{
         var futbolistas:ArrayList<Futbolista> = ArrayList(1)
 
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
