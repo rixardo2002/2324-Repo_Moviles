@@ -16,15 +16,28 @@ class AdminSQLIteConexion(context: Context, name: String, factory: SQLiteDatabas
         y pequeñas cosas, por lo tanto tampoco se metarán grandes sentencias yq que SQLite no está pensado para eso
         Para BBDD más complejas, ya usarmeos servicios externos.
         */
-        db.execSQL("create table personas(dni text primary key, nombre text, edad int)")
+        db.execSQL("create table personas(dni text primary key, nombre text, apellido text, equipo text)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        Log.e("ACSCO","Paso por OnUpgrade del AdminSQLLite")
-        //si la BBDD ya existe, se modificaria con el SQL que aquí pongamos.
-        //Si no existe se va al OnCreate, si existe, viene aquí.
-        //para venir aquí has tenido que pasar una versión diferente y se detecta automáticamente y pasa por aquí.
-        //por ejemplo podríamos borrar una tabla con DROP y luego crearla si interesa que una tabla esté siempre vacía
-        //o le hago un truncate y me cargo sus datos directamente. (por ejemplo la típica tabla de registro de bitácora de la sesión)
+        Log.e("ACSCO", "Paso por OnUpgrade del AdminSQLLite")
+        Log.e("ACSCO", "Old Version: $oldVersion, New Version: $newVersion")
+
+        // Verifica si la versión anterior es menor que la versión en la que se agregaron los campos "apellido" y "equipo".
+        if (oldVersion < 2 && newVersion >= 2) {
+            // Modifica la estructura de la tabla "personas" para agregar los campos "apellido" y "equipo".
+            db.execSQL("ALTER TABLE personas ADD COLUMN apellido TEXT")
+            db.execSQL("ALTER TABLE personas ADD COLUMN equipo TEXT")
+        }
+
+        // Puedes agregar más bloques if para otras actualizaciones según la versión.
+
+        // Ejemplo de otro bloque if para futuras actualizaciones:
+        /*
+        if (oldVersion < 3 && newVersion >= 3) {
+            // Realizar modificaciones adicionales aquí.
+        }
+        */
     }
+
 }
