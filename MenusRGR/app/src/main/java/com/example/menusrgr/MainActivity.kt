@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.menusrgr.databinding.ActivityMainBinding
-import com.example.toolbarymenupuntos.VentanaOpcion1
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Opción 1", Toast.LENGTH_LONG).show()
             }
             R.id.mnOp2 -> {
+                irAVentanaOpcion2()
                 Toast.makeText(this, "Opción 2", Toast.LENGTH_SHORT).show()
             }
 
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
     //version lambda de la funcion. Unit equivale a void de Java.
     private val irAVentanaOpcion1: () -> Unit = {
         val miIntent = Intent(this, VentanaOpcion1::class.java)
+        startActivity(miIntent)
+    }
+    private val irAVentanaOpcion2: () -> Unit = {
+        val miIntent = Intent(this, VentanaOpcion2::class.java)
         startActivity(miIntent)
     }
 }

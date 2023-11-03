@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MenusRGR"
         tools:targetApi="31">
         <activity
+            android:name=".VentanaOpcion2"
+            android:exported="false" />
+        <activity
             android:name=".VentanaOpcion1"
             android:exported="false" />
         <activity
