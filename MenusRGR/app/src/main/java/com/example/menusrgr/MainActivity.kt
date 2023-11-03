@@ -52,11 +52,11 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.mnOp1 -> {
                 irAVentanaOpcion1()
-                Toast.makeText(this, "Opción 1", Toast.LENGTH_LONG).show()
+
             }
             R.id.mnOp2 -> {
                 irAVentanaOpcion2()
-                Toast.makeText(this, "Opción 2", Toast.LENGTH_SHORT).show()
+
             }
 
             R.id.mnBusqueda -> {
