@@ -11,6 +11,7 @@ import com.example.menusrgr.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var nombre:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,6 +29,16 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbarPrincipal.setNavigationOnClickListener {
             Toast.makeText(this,"Pulsado el retroceso", Toast.LENGTH_SHORT).show()
+        }
+        // Agregar un OnClickListener al botón "Aceptar"
+        binding.btnAceptar.setOnClickListener {
+             nombre = binding.txtUsuario.text.toString()
+            if (nombre.isNotEmpty()) {
+                // Aquí puedes hacer algo con el nombre, como mostrarlo en un Toast
+                Toast.makeText(this, "Hola, $nombre", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Por favor, ingrese su nombre.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     //************************* Funciones auxiliares para los menú de puntos *****************************
@@ -62,10 +73,12 @@ class MainActivity : AppCompatActivity() {
     //version lambda de la funcion. Unit equivale a void de Java.
     private val irAVentanaOpcion1: () -> Unit = {
         val miIntent = Intent(this, VentanaOpcion1::class.java)
+        miIntent.putExtra("nombre", nombre)
         startActivity(miIntent)
     }
     private val irAVentanaOpcion2: () -> Unit = {
         val miIntent = Intent(this, VentanaOpcion2::class.java)
+        miIntent.putExtra("nombre", nombre)
         startActivity(miIntent)
     }
 }

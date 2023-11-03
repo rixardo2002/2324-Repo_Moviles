@@ -14,18 +14,27 @@ class VentanaOpcion1 : AppCompatActivity() {
         binding = ActivityVentanaOpcion1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbarOpcion1.title = "    Mi aplicación DAM"
-        binding.toolbarOpcion1.subtitle = "     Opcion1"
-        binding.toolbarOpcion1.setLogo(R.drawable.ic_logo)
+        binding.toolbar2.title = "    Mi aplicación DAM"
+        binding.toolbar2.subtitle = "     Opcion1"
+        binding.toolbar2.setLogo(R.drawable.ic_logo)
 
         //aquí simplemente inflo la toolBaar, pero aún no hay opciones ni botón home.
-        setSupportActionBar(binding.toolbarOpcion1)
+        setSupportActionBar(binding.toolbar2)
 
         //en las siguientes líneas hago que aaprezca el botón de atrás (home) y genero su evento
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbarOpcion1.setNavigationOnClickListener {
+        binding.toolbar2.setNavigationOnClickListener {
             Toast.makeText(this,"Pulsado el retroceso", Toast.LENGTH_SHORT).show()
             finish()
+        }
+
+        // Recupera el nombre enviado desde MainActivity
+        val nombre = intent.getStringExtra("nombre")
+
+        if (nombre != null) {
+            // Hacer algo con el nombre, como mostrarlo en un TextView
+            Toast.makeText(this,"Bienvenido "+ nombre, Toast.LENGTH_SHORT).show()
+
         }
     }
 }
