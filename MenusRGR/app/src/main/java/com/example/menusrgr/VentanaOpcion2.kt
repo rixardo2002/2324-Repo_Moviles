@@ -1,11 +1,13 @@
 package com.example.menusrgr
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
-
+import Auxiliar.Conexion
+import Modelo.Usuario
 import com.example.menusrgr.databinding.ActivityVentanaOpcion2Binding
 import java.util.Random
 
@@ -17,7 +19,7 @@ class VentanaOpcion2 : AppCompatActivity() {
     private var isSimonPlaying = false
     private var handler = android.os.Handler()
     private var nivel = 1 // Inicializamos el nivel en 1
-
+     var p:Usuario? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // setContentView(R.layout.activity_ventana_opcion1)
@@ -42,8 +44,10 @@ class VentanaOpcion2 : AppCompatActivity() {
 
         if (nombre != null) {
             // Hacer algo con el nombre, como mostrarlo en un TextView
-            Toast.makeText(this,"Bienvenido "+ nombre, Toast.LENGTH_SHORT).show()
-
+            p=Conexion.buscarUsuario(this,nombre)
+            if (p!=null){
+                Toast.makeText(this,"Bienvenido "+ p!!.nombre + " ,tu puntuación actual es de: " + p!!.puntuacion, Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Inicializamos ImageButtons y establecemos los botones
@@ -118,6 +122,7 @@ class VentanaOpcion2 : AppCompatActivity() {
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     private fun manejarEntradaJugador(button: ImageButton) {
         val buttonEsperado = simonPattern[playerPatternIndex]
 
@@ -131,24 +136,26 @@ class VentanaOpcion2 : AppCompatActivity() {
                 generarPatronSimon()
                 nivel++ // Incrementamos el nivel
                 binding.nivel.text = "Nivel $nivel" // Actualizamos el nivel
-                if (nivel == 10) {
-                    // Has ganado el juego
-                    isSimonPlaying = false
-                    Toast.makeText(this, "¡HAS GANADOO!", Toast.LENGTH_SHORT).show()
 
-                } else {
                     // Mostrar la secuencia  para el próximo nivel
                     mostrarPatronSimon()
-                }
+
             }
         } else {
-
+            //Conexion.modPersona(p.nombre,nivel.toInt())
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
+            // Modificar la puntuación del usuario con el valor de nivel
+            val puntuacionNueva = nivel
+            if (p != null) {
+                p!!.puntuacion = puntuacionNueva
+                val filasActualizadas = Conexion.modPersona(this, p!!.nombre, p!!)
+                if (filasActualizadas > 0) {
+                    Toast.makeText(this, "Puntuación modificada: $puntuacionNueva", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Error al modificar la puntuación", Toast.LENGTH_SHORT).show()
+                }
+            }
             reiniciarJuegoSimonDice()
         }
     }
-
-
-
-
 }

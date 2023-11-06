@@ -43,14 +43,12 @@ class VentanaOpcion1 : AppCompatActivity() {
         pulsarBotonesJug()
     }
     private fun pulsarBotonesJug(){
-
         var juegoterminado=false;
         val imagenes = arrayOf(
             binding.imageButton00,binding.imageButton01,binding.imageButton02,
             binding.imageButton10,binding.imageButton11,binding.imageButton12,
             binding.imageButton20,binding.imageButton21,binding.imageButton22
         )
-
         for (imagen in imagenes) {
 
             imagen.setOnClickListener() {
@@ -60,14 +58,11 @@ class VentanaOpcion1 : AppCompatActivity() {
                     if (contador % 2 != 0) {
 
                         imagen.setImageResource(R.drawable.naruto)
-
                     } else {
                         imagen.setImageResource(R.drawable.sasuke)
-
                     }
                     contador++
                 }
-
                 if (jugadasGanadorasJugador1() && !juegoterminado) {
 
                     Toast.makeText(this, "El ganador es JUGADOR 1 !!!!", Toast.LENGTH_SHORT).show()
