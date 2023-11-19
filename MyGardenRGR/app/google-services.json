@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "338976268196",
+    "project_id": "mygarden-8fddf",
+    "storage_bucket": "mygarden-8fddf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338976268196:android:f87bab455bccdabf966b31",
+        "android_client_info": {
+          "package_name": "com.example.mygardenrgr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtojujFEQDKWFbXiO_H3lz22jK6ylrX4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
