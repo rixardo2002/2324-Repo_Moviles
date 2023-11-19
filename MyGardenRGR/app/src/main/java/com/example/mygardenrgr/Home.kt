@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.example.mygardenrgr.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
-
+import com.google.android.gms.auth.api.identity.Identity
 
 class Home : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
@@ -14,6 +14,7 @@ class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setContentView(R.layout.activity_home)
         //setContentView(R.layout.activity_home)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,6 +39,16 @@ class Home : AppCompatActivity() {
 //                    Log.e(TAG,"Hubo algún error al cerrar la sesión")
 //                }
 //            }
+            firebaseauth.signOut()
+
+            val signInClient = Identity.getSignInClient(this)
+            signInClient.signOut()
+            Log.e(TAG,"Cerrada sesión completamente")
+            finish()
+
+        }
+        binding.btVolver.setOnClickListener {
+            // Log.e(TAG, firebaseauth.currentUser.toString())
             firebaseauth.signOut()
             finish()
         }
