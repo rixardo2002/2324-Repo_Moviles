@@ -18,12 +18,7 @@ import com.google.firebase.ktx.Firebase
 class Home : AppCompatActivity() {
 
 
-    /**************************DATOS DE PRUEBA ******************************************************************/
-    var miArray:ArrayList<User> = ArrayList()  //Este será el arrayList que se usará para el adapter del RecyclerView o de la ListView.
-    //Valores fake.
-    val nombres = listOf("Ragnar","Ivar","Lagertha","Floki")
-    val apellidos = listOf("Lothbrok","Sin huesos","Piel de Hierro","Semi diosa")
-    val edades = listOf(18, 23, 45, 67, 34, 47, 41)
+
     lateinit var binding: ActivityHomeBinding
     private lateinit var firebaseauth : FirebaseAuth
     val TAG = "ACSCO"
@@ -37,9 +32,6 @@ class Home : AppCompatActivity() {
 
         //Para la autenticación, de cualquier tipo.
         firebaseauth = FirebaseAuth.getInstance()
-
-        // Mostrar el diálogo al entrar en la ventana Home
-        mostrarDialogoIrDatosPersonales()
 
         //Recuperamos los datos del login.
         binding.txtEmail.text = intent.getStringExtra("email").toString()
@@ -137,8 +129,13 @@ class Home : AppCompatActivity() {
 
         }
 
+        binding.btIrVentanaPrincipal.setOnClickListener {
+            mostrarDialogoIrVentanaPrincipal()
+        }
 
 
+        // Mostrar el diálogo al entrar en la ventana Home
+        mostrarDialogoIrDatosPersonales()
     }//OVERRIDE
 
 
@@ -153,7 +150,7 @@ class Home : AppCompatActivity() {
         }
         builder.setNegativeButton("No") { _, _ ->
             //irAVentanaPrincipal()
-            Toast.makeText(this, "Esto va a la ventana 2", Toast.LENGTH_SHORT).show()
+
 
         }
         builder.show()
@@ -195,9 +192,11 @@ class Home : AppCompatActivity() {
     // Función para ir a la VentanaPrincipal
     private fun irAVentanaPrincipal() {
         ocultarDatosPersonales()
-        //val intent = Intent(this, VentanaPrincipal::class.java)
+        val intent = Intent(this, VentanaPrincipal::class.java)
         startActivity(intent)
-        finish()  // Esto cierra la actividad actual para que el usuario no pueda volver atrás
+
+        // Mostrar el diálogo al regresar a la ventana Home
+        mostrarDialogoIrDatosPersonales()
     }
 
 
@@ -207,8 +206,8 @@ class Home : AppCompatActivity() {
         builder.setMessage("¿Desea ir a la página principal?")
         builder.setPositiveButton("Sí") { _, _ ->
             // Si la respuesta es sí, llevar al usuario a la VentanaPrincipal
-            //irAVentanaPrincipal()
-            Toast.makeText(this, "Esto va a la ventana 2", Toast.LENGTH_SHORT).show()
+            irAVentanaPrincipal()
+
 
         }
         builder.setNegativeButton("No") { dialog, _ ->

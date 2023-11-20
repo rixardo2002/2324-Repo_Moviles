@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbarPrincipal.title = "    Mi aplicación DAM"
-        binding.toolbarPrincipal.subtitle = "     Principal"
+        binding.toolbarPrincipal.title = "Mi aplicación DAM"
+        binding.toolbarPrincipal.subtitle = "Principal"
         binding.toolbarPrincipal.setLogo(R.drawable.ic_logo)
 
         setSupportActionBar(binding.toolbarPrincipal)
