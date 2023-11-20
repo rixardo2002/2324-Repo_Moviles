@@ -36,9 +36,9 @@ class Home : AppCompatActivity() {
         firebaseauth = FirebaseAuth.getInstance()
 
         //Recuperamos los datos del login.
-//        binding.txtEmail.text = intent.getStringExtra("email").toString()
-//        binding.txtProveedor.text = intent.getStringExtra("provider").toString()
-//        binding.txtNombre.text = intent.getStringExtra("nombre").toString()
+        binding.txtEmail.text = intent.getStringExtra("email").toString()
+        binding.txtProveedor.text = intent.getStringExtra("provider").toString()
+        binding.txtNombre.text = intent.getStringExtra("nombre").toString()
 
         binding.btCerrarSesion.setOnClickListener {
             Log.e(TAG, firebaseauth.currentUser.toString())
@@ -90,29 +90,7 @@ class Home : AppCompatActivity() {
         }
 
 
-        binding.btEliminar.setOnClickListener {
-            //Buscamos antes si existe un campo con ese email en un documento.
-            val id = db.collection("users")
-                .whereEqualTo("email",binding.txtEmail.text.toString())
-                .get()
-                .addOnSuccessListener {result ->
-                    //En result, vienen los que cumplen la condición (si no pongo nada es it)
-                    //Con esto borramos el primero.
-                    //db.collection("users").document(result.elementAt(0).id).delete().toString()
-                    //Con esto borramos todos. No olvidar que id aquí no es una Primarykey, puede repetirse.
-                    for (document in result) {
-                        db.collection("users")
-                            .document(document.id)
-                            .delete().toString() //lo importante aquí es el delete. el toString es pq además devuelve un mensaje con lo sucedido.
-                    }
 
-                    Toast.makeText(this, "Eliminado", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener{
-                    Toast.makeText(this, "No se ha encontrado el documento a eliminar", Toast.LENGTH_SHORT).show()
-                }
-
-        }
 
 
     }//OVERRIDE
