@@ -34,10 +34,10 @@ class MainActivity : AppCompatActivity() {
         firebaseauth = FirebaseAuth.getInstance()
         //------------------------------ Autenticación con email y password ------------------------------------
         binding.btRegistrar.setOnClickListener {
-            if (binding.edEmail.text.isNotEmpty() && binding.edPass.text.isNotEmpty()){
-                firebaseauth.createUserWithEmailAndPassword(binding.edEmail.text.toString(),binding.edPass.text.toString()).addOnCompleteListener {
+            if (binding.edEmail.text.toString().isNotEmpty() && binding.edPass.text.toString().isNotEmpty()){
+                firebaseauth.createUserWithEmailAndPassword(binding.edEmail.toString(),binding.edPass.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        irHome(it.result?.user?.email?:"", Proveedor.EMAIL)  //Esto de los interrogantes es por si está vacío el email, que enviaría una cadena vacía.
+                        irVentanaPrincipal(it.result?.user?.email?:"", Proveedor.EMAIL)  //Esto de los interrogantes es por si está vacío el email, que enviaría una cadena vacía.
                     } else {
                         showAlert("Error registrando al usuario.")
                     }
@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btLogin.setOnClickListener {
-            if (binding.edEmail.text.isNotEmpty() && binding.edPass.text.isNotEmpty()){
+            if (binding.edEmail.text.toString().isNotEmpty() && binding.edPass.text.toString().isNotEmpty()){
                 firebaseauth.signInWithEmailAndPassword(binding.edEmail.text.toString(),binding.edPass.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        irHome(it.result?.user?.email?:"", Proveedor.EMAIL)  //Esto de los interrogantes es por si está vacío el email.
+                        irVentanaPrincipal(it.result?.user?.email?:"", Proveedor.EMAIL)  //Esto de los interrogantes es por si está vacío el email.
                     } else {
                         showAlert()
                     }
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         firebaseauth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful){
                 //hacer account. y ver otras propiedades interesantes.
-                irHome(account.email.toString(),Proveedor.GOOGLE, account.displayName.toString())
+                irVentanaPrincipal(account.email.toString(),Proveedor.GOOGLE, account.displayName.toString())
             }
             else {
                 Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -144,9 +144,9 @@ class MainActivity : AppCompatActivity() {
 
 
     //*********************************************************************************
-    private fun irHome(email:String, provider:Proveedor, nombre:String = "Usuario"){
+    private fun irVentanaPrincipal(email:String, provider:Proveedor, nombre:String = "Usuario"){
         Log.e(TAG,"Valores: ${email}, ${provider}, ${nombre}")
-        val homeIntent = Intent(this, Home::class.java).apply {
+        val homeIntent = Intent(this, VentanaPrincipal::class.java).apply {
             putExtra("email",email)
             putExtra("provider",provider.name)
             putExtra("nombre",nombre)

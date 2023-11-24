@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/label"
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/txtListado"
         android:layout_width="334dp"
@@ -33,6 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtListado"
         app:layout_constraintVertical_bias="0.301" />
 
+
     <EditText
         android:id="@+id/edDNI"
         android:layout_width="303dp"
@@ -40,6 +50,7 @@
         android:ems="10"
         android:hint="DNI..."
         android:inputType="textPersonName"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.314"
@@ -141,3 +152,4 @@
         app:layout_constraintVertical_bias="0.915" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

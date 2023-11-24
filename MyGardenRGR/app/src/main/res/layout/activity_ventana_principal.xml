@@ -7,15 +7,31 @@
     tools:context=".VentanaPrincipal"
     android:background="@drawable/huerto">
 
-    <Button
-        android:id="@+id/btnRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Volver"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="183dp"
+        android:layout_height="157dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintVertical_bias="0.686"
+        app:srcCompat="@drawable/verduras" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPrincipal"
+        android:layout_width="412dp"
+        android:layout_height="71dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

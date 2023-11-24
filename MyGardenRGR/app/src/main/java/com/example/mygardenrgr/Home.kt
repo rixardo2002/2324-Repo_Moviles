@@ -59,9 +59,7 @@ class Home : AppCompatActivity() {
 
         }
         binding.btVolver.setOnClickListener {
-            // Log.e(TAG, firebaseauth.currentUser.toString())
-            firebaseauth.signOut()
-            finish()
+            irAVentanaPrincipal(intent.getStringExtra("email").toString())
         }
         binding.btGuardar.setOnClickListener {
             val userEmail = binding.txtEmail.text.toString()
@@ -129,9 +127,7 @@ class Home : AppCompatActivity() {
 
         }
 
-        binding.btIrVentanaPrincipal.setOnClickListener {
-            mostrarDialogoIrVentanaPrincipal()
-        }
+
 
 
         // Mostrar el diálogo al entrar en la ventana Home
@@ -149,7 +145,7 @@ class Home : AppCompatActivity() {
             mostrarDatosPersonales()
         }
         builder.setNegativeButton("No") { _, _ ->
-            //irAVentanaPrincipal()
+
 
 
         }
@@ -190,29 +186,17 @@ class Home : AppCompatActivity() {
     }
 
     // Función para ir a la VentanaPrincipal
-    private fun irAVentanaPrincipal() {
+    private fun irAVentanaPrincipal(email: String) {
         ocultarDatosPersonales()
-        val intent = Intent(this, VentanaPrincipal::class.java)
+        val intent = Intent(this, VentanaPrincipal::class.java).apply {
+            putExtra("email", email)
+            putExtra("provider", intent.getStringExtra("provider"))
+            putExtra("nombre", intent.getStringExtra("nombre"))
+        }
         startActivity(intent)
-
-        // Mostrar el diálogo al regresar a la ventana Home
-        mostrarDialogoIrDatosPersonales()
+        finish()  // Cierra la actividad actual para que no puedas volver atrás
     }
 
 
-    private fun mostrarDialogoIrVentanaPrincipal() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Ir a la página principal")
-        builder.setMessage("¿Desea ir a la página principal?")
-        builder.setPositiveButton("Sí") { _, _ ->
-            // Si la respuesta es sí, llevar al usuario a la VentanaPrincipal
-            irAVentanaPrincipal()
 
-
-        }
-        builder.setNegativeButton("No") { dialog, _ ->
-            dialog.dismiss()  // Cerrar el cuadro de diálogo si la respuesta es no
-        }
-        builder.show()
-    }
 }
