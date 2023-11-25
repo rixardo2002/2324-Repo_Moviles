@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/mnOp1"
+
+        android:title="Opcion1" />
+    <item
+        android:id="@+id/mnOp2"
+
+        android:title="Opcion2" />
+    <item
+        android:id="@+id/mnBusqueda"
+
+        android:title="Buscar"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/mnPerson"
+        android:icon="@drawable/ic_logo_people"
+        android:title="Person"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/mnOp3"
+        android:title="Opcion3" />
+    <item
+        android:id="@+id/mnOp4"
+        android:title="Opcion4" />
+</menu>
