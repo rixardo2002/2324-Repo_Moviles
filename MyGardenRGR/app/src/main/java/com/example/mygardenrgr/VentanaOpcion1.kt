@@ -14,7 +14,7 @@ class VentanaOpcion1 : AppCompatActivity() {
         val btnAbrirEnlace1: Button = findViewById(R.id.btnAbrirEnlace1)
         val btnAbrirEnlace2: Button = findViewById(R.id.btnAbrirEnlace2)
         val btnEnviarCorreo: Button = findViewById(R.id.btnEnviarCorreo)
-
+        //Al pulsar el botón nos llevará a su respectiva función
         btnAbrirEnlace1.setOnClickListener {
             abrirEnlace1()
         }

@@ -49,4 +49,7 @@
     <string name="deseair">¿Desea ir al apartado de datos personales?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
+    <string name="enlace1">Enlace Github</string>
+    <string name="enlace2">Página Huerto</string>
+    <string name="correo">Enviar Correo</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/huerto"
     tools:context=".VentanaOpcion1">
 
     <!-- Primer botón para abrir enlace 1 -->
@@ -24,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/huerto"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -32,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="abrirEnlace1"
-        android:text="Abrir Enlace 1"
+        android:text="@string/enlace1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
@@ -45,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="enviarCorreo"
-        android:text="Enviar Correo"
+        android:text="@string/correo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -57,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="abrirEnlace2"
-        android:text="Abrir Enlace 2"
+        android:text="@string/enlace2"
         app:layout_constraintBottom_toTopOf="@+id/btnEnviarCorreo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"

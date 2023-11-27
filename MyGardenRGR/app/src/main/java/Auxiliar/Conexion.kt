@@ -3,6 +3,7 @@ package Auxiliar
 import Conexion.AdminSQLIteConexion
 
 import android.content.ContentValues
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mygardenrgr.Producto
 
@@ -11,7 +12,7 @@ object Conexion {
     //Si hay algún cambio en la BBDD, se cambia el número de versión y así automáticamente
     // se pasa por el OnUpgrade del AdminSQLite
     //y ahí añades las sentencias que interese modificar de la BBDD
-    private  var DATABASE_NAME = "productos.db3"
+    private  var DATABASE_NAME = "productos2.db3"
     private  var DATABASE_VERSION = 1
 
 
@@ -75,17 +76,20 @@ object Conexion {
         return p
     }
 
-    fun obtenerProductos(contexto: AppCompatActivity):ArrayList<Producto>{
+    fun obtenerProductos(contexto: AppCompatActivity, emailUsuario: String):ArrayList<Producto>{
         var productos:ArrayList<Producto> = ArrayList(1)
 
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)
         val bd = admin.readableDatabase
-        val fila = bd.rawQuery("select email,nombre,procedencia,cantidad,imagen from productos", null)
+        var par = arrayOf(emailUsuario)
+        Log.d("ABCD",emailUsuario)
+        val fila = bd.rawQuery("select * from productos where email= ?",par)
         while (fila.moveToNext()) {
             var p:Producto = Producto(fila.getString(0),fila.getString(1),fila.getString(2),fila.getString(3),fila.getString(4))
             productos.add(p)
         }
         bd.close()
+        Log.d("ABCD",productos.toString())
         return productos //este arrayList lo puedo poner en un adapter de un RecyclerView por ejemplo.
     }
 

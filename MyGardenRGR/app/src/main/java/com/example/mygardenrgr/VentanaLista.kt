@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,8 +30,10 @@ class VentanaLista : AppCompatActivity() {
         binding = ActivityVentanaListaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val email = intent.getStringExtra("email").toString()
-        var listado:ArrayList<Producto> = Conexion.obtenerProductos(this)
+        //var listado:ArrayList<Producto> = Conexion.obtenerProductos(this,email)
 
+
+        Almacen.productos= Conexion.obtenerProductos(this,email)
         binding.edEmailL.text = email
 
 
@@ -38,7 +41,7 @@ class VentanaLista : AppCompatActivity() {
         miRecyclerView.setHasFixedSize(true)
         miRecyclerView.layoutManager = LinearLayoutManager(this)
         // Crear un nuevo adaptador con la lista actualizada de productos
-        var miAdapter = MiAdaptadorRecycler(listado, this)
+        var miAdapter = MiAdaptadorRecycler(Almacen.productos, this)
         miRecyclerView.adapter = miAdapter
 
         contextoPrincipal = this
@@ -50,32 +53,35 @@ class VentanaLista : AppCompatActivity() {
     }
 
     fun addProducto(view: View) {
-        if (binding.edNombreL.text.toString().trim().isEmpty() || binding.edProcedenciaL.text.toString().trim().isEmpty()
-            || binding.edCantidadL.text.toString().trim().isEmpty()){
+        if (binding.edNombreL.text.toString().trim().isEmpty() ||
+            binding.edProcedenciaL.text.toString().trim().isEmpty() ||
+            binding.edCantidadL.text.toString().trim().isEmpty()
+        ) {
             Toast.makeText(this, R.string.campos, Toast.LENGTH_SHORT).show()
-        }
-        else {
-
+        } else {
             var prod: Producto = Producto(
-                binding.edEmailL.toString(),
+                binding.edEmailL.getText().toString(),
                 binding.edNombreL.getText().toString(),
                 binding.edProcedenciaL.getText().toString(),
                 binding.edCantidadL.getText().toString(),
                 binding.edNombreL.getText().toString().toLowerCase()
             )
-            var codigo= Conexion.addProducto(this, prod)
-            binding.edEmailL.setText("")
+
+            Log.d("AAAA",prod.toString())
+            var codigo = Conexion.addProducto(this, prod)
+
             binding.edNombreL.setText("")
             binding.edProcedenciaL.setText("")
             binding.edCantidadL.setText("")
             binding.edNombreL.requestFocus()
-            //la L es por ser un Long lo que trae codigo.
-            if(codigo!=-1L) {
+
+            // Actualizar la lista de productos después de agregar uno nuevo
+            if (codigo != -1L) {
                 Toast.makeText(this, R.string.productoinsertado, Toast.LENGTH_SHORT).show()
                 listarProductos(view)
-            }
-            else
+            } else {
                 Toast.makeText(this, R.string.existenombre, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -128,29 +134,24 @@ class VentanaLista : AppCompatActivity() {
     }
 
     fun listarProductos(view: View) {
-        var listado:ArrayList<Producto> = Conexion.obtenerProductos(this)
+        var listado:ArrayList<Producto> = Conexion.obtenerProductos(this,intent.getStringExtra("email").toString())
+
+        Almacen.productos= Conexion.obtenerProductos(this,intent.getStringExtra("email").toString())
 
         if (listado.size == 0){
             Toast.makeText(this, R.string.nomasdatos, Toast.LENGTH_SHORT).show()
         }
 
+
         miRecyclerView = binding.listaProductosRecycler as RecyclerView
         miRecyclerView.setHasFixedSize(true)
         miRecyclerView.layoutManager = LinearLayoutManager(this)
+        // Crear un nuevo adaptador con la lista actualizada de productos
         var miAdapter = MiAdaptadorRecycler(listado, this)
         miRecyclerView.adapter = miAdapter
 
         contextoPrincipal = this
+
     }
-
-
-
-
-
-
-
-
-
-
 
 }

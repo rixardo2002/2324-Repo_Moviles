@@ -50,4 +50,7 @@
     <string name="deseair">Do you want to go to the personal data section?</string>
     <string name="si">Yes</string>
     <string name="no">No</string>
+    <string name="enlace1">Url Github</string>
+    <string name="enlace2">Garden Web</string>
+    <string name="correo">Send Gmail</string>
 </resources>
