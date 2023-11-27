@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import android.app.AlertDialog
 import android.content.Intent
+import android.widget.TextView
 import com.example.conexionyloginantonio.User
 import com.example.mygardenrgr.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -110,7 +111,7 @@ class Home : AppCompatActivity() {
 
         }
         binding.btRecuperar.setOnClickListener {
-            mostrarTextViews()
+
             //Búsqueda por id del documento.
             db.collection("users")
                 .document(binding.txtEmail.text.toString())
@@ -120,6 +121,10 @@ class Home : AppCompatActivity() {
                     binding.edNombre.setText(it.get("name") as String?)
                     binding.edEdad.setText(it.get("age") as String?)
 
+                    // Mostrar el diálogo con la información recuperada
+                    mostrarDialogRecuperarDatos(binding.txtEmail.text.toString(), binding.txtProveedor.text.toString(), binding.edNombre.text.toString(),binding.edEdad.text.toString())
+
+
                     Toast.makeText(this, "Recuperado", Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener {
                     Toast.makeText(this, "Algo ha ido mal al recuperar", Toast.LENGTH_SHORT).show()
@@ -127,12 +132,44 @@ class Home : AppCompatActivity() {
 
         }
 
-
-
-
         // Mostrar el diálogo al entrar en la ventana Home
         mostrarDialogoIrDatosPersonales()
     }//OVERRIDE
+
+    private fun mostrarDialogRecuperarDatos(email: String,proovedor:String, nombre: String?, edad: String?) {
+        // Crear un AlertDialog.Builder
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Datos Recuperados")
+
+        // Inflar el diseño personalizado para el contenido del diálogo
+        val dialogLayout = layoutInflater.inflate(R.layout.dialog_recuperar_datos, null)
+
+        // Obtener las referencias a los TextView dentro del diseño personalizado
+        val txtEmail = dialogLayout.findViewById<TextView>(R.id.txtEmail)
+        val txtProveedor = dialogLayout.findViewById<TextView>(R.id.txtProveedor)
+
+        val txtNombre = dialogLayout.findViewById<TextView>(R.id.txtNombre)
+        val txtEdad = dialogLayout.findViewById<TextView>(R.id.txtEdad)
+
+        // Establecer el texto en los TextView
+        txtEmail.text = email
+        txtProveedor.text = proovedor
+        txtNombre.text = nombre ?: "Nombre no disponible"
+        txtEdad.text = edad ?: "Edad no disponible"
+
+        // Establecer el diseño personalizado en el diálogo
+        builder.setView(dialogLayout)
+
+        // Agregar un botón "Aceptar" al diálogo
+        builder.setPositiveButton("Aceptar") { dialog, _ ->
+            dialog.dismiss() // Cierra el diálogo al hacer clic en "Aceptar"
+        }
+
+        // Mostrar el diálogo
+        builder.show()
+    }
+
+
 
 
     // Función para mostrar el diálogo
@@ -154,16 +191,14 @@ class Home : AppCompatActivity() {
 
     // Función para mostrar elementos relacionados con datos personales
     private fun mostrarDatosPersonales() {
+        binding.textField.visibility = View.VISIBLE
+        binding.textField1.visibility = View.VISIBLE
         binding.edNombre.visibility = View.VISIBLE
         binding.edEdad.visibility = View.VISIBLE
         binding.btGuardar.visibility = View.VISIBLE
         binding.btEliminar.visibility = View.VISIBLE
         binding.btRecuperar.visibility = View.VISIBLE
 
-        // Ocultar elementos específicos
-        binding.txtEmail.visibility = View.GONE
-        binding.txtProveedor.visibility = View.GONE
-        binding.txtNombre.visibility = View.GONE
     }
     private fun ocultarDatosPersonales() {
         binding.edNombre.visibility = View.GONE
@@ -171,19 +206,13 @@ class Home : AppCompatActivity() {
         binding.btGuardar.visibility = View.GONE
         binding.btEliminar.visibility = View.GONE
         binding.btRecuperar.visibility = View.GONE
+        binding.textField.visibility = View.GONE
+        binding.textField1.visibility = View.GONE
 
-        // Ocultar elementos específicos
-        binding.txtEmail.visibility = View.GONE
-        binding.txtProveedor.visibility = View.GONE
-        binding.txtNombre.visibility = View.GONE
     }
 
-    // Función para mostrar TextViews
-    private fun mostrarTextViews() {
-        binding.txtEmail.visibility = View.VISIBLE
-        binding.txtProveedor.visibility = View.VISIBLE
-        binding.txtNombre.visibility = View.VISIBLE
-    }
+
+
 
     // Función para ir a la VentanaPrincipal
     private fun irAVentanaPrincipal(email: String) {

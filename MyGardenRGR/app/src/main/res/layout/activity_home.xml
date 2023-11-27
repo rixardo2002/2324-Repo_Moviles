@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/txtEmail"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="252dp"
+        android:layout_height="30dp"
         android:text="Email"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         android:id="@+id/txtNombre"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Proveedor"
+        android:text="Nombre"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,10 +54,10 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.534" />
 
     <Button
         android:id="@+id/btRecuperar"
@@ -67,10 +67,10 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.655" />
 
     <Button
         android:id="@+id/btGuardar"
@@ -80,57 +80,79 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.534" />
 
-    <EditText
-        android:id="@+id/edNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Tu nombre..."
-        android:inputType="textPersonName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="208dp"
+        android:layout_height="57dp"
+        android:hint="Nombre..."
+        android:textColorHint="#1A7102"
         android:visibility="gone"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.353"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintVertical_bias="0.238">
 
-    <EditText
-        android:id="@+id/edEdad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Tu edad..."
-        android:inputType="number"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField1"
+        android:layout_width="208dp"
+        android:layout_height="57dp"
+        android:hint="Edad..."
+        android:textColorHint="#1A7102"
         android:visibility="gone"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.353"
+        app:layout_constraintHorizontal_bias="0.379"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.313" />
+        app:layout_constraintVertical_bias="0.351">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btCerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cerrar sesión"
+        app:icon="@drawable/ic_cerrarsesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.918" />
 
+
+
+
     <Button
         android:id="@+id/btVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Volver"
+        app:icon="@drawable/ic_volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

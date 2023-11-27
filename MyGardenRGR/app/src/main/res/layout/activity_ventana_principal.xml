@@ -8,7 +8,7 @@
     android:background="@drawable/huerto">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imgBttnHuerto"
         android:layout_width="183dp"
         android:layout_height="157dp"
         android:adjustViewBounds="true"

@@ -35,6 +35,18 @@ class VentanaPrincipal : AppCompatActivity() {
             Toast.makeText(this,"Pulsado el retroceso", Toast.LENGTH_SHORT).show()
         }
 
+        binding.imgBttnHuerto.setOnClickListener(){
+            // Crear un Intent para cambiar a la actividad VentanaRecycler
+            val intent = Intent(this, VentanaLista::class.java)
+
+            // Agregar el correo electrónico como un extra al Intent
+            intent.putExtra("email", email)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+
+        }
+
 
 
 
@@ -73,9 +85,7 @@ class VentanaPrincipal : AppCompatActivity() {
             R.id.mnOp4 -> {
                 //irAOpcion4()
             }
-            R.id.mnBusqueda -> {
-                Toast.makeText(this, "Buscar", Toast.LENGTH_SHORT).show()
-            }
+
         }
         return super.onOptionsItemSelected(item)
     }

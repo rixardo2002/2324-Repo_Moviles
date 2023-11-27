@@ -34,36 +34,36 @@ class MainActivity : AppCompatActivity() {
         firebaseauth = FirebaseAuth.getInstance()
         //------------------------------ Autenticación con email y password ------------------------------------
         binding.btRegistrar.setOnClickListener {
-            if (binding.edEmail.text.toString().isNotEmpty() && binding.edPass.text.toString().isNotEmpty()){
-                firebaseauth.createUserWithEmailAndPassword(binding.edEmail.toString(),binding.edPass.text.toString()).addOnCompleteListener {
+            if (binding.edEmail.text!!.isNotEmpty() && binding.edPass.text!!.isNotEmpty()){
+                firebaseauth.createUserWithEmailAndPassword(binding.edEmail.text.toString(),binding.edPass.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
                         irVentanaPrincipal(it.result?.user?.email?:"", Proveedor.EMAIL)  //Esto de los interrogantes es por si está vacío el email, que enviaría una cadena vacía.
                     } else {
-                        showAlert("Error registrando al usuario.")
+                        showAlert(binding.edEmail.text.toString(),binding.edPass.text.toString())
                     }
                 }.addOnFailureListener{
                     Toast.makeText(this, "Conexión no establecida", Toast.LENGTH_SHORT).show()
                 }
             }
             else {
-                showAlert("Rellene los campos")
+                showAlert(binding.edEmail.text.toString(),binding.edPass.text.toString())
             }
         }
 
         binding.btLogin.setOnClickListener {
-            if (binding.edEmail.text.toString().isNotEmpty() && binding.edPass.text.toString().isNotEmpty()){
+            if (binding.edEmail.text!!.isNotEmpty() && binding.edPass.text!!.isNotEmpty()){
                 firebaseauth.signInWithEmailAndPassword(binding.edEmail.text.toString(),binding.edPass.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
                         irVentanaPrincipal(it.result?.user?.email?:"", Proveedor.EMAIL)  //Esto de los interrogantes es por si está vacío el email.
                     } else {
-                        showAlert()
+                        showAlert(binding.edEmail.text.toString(),binding.edPass.text.toString())
                     }
                 }.addOnFailureListener{
                     Toast.makeText(this, "Conexión no establecida", Toast.LENGTH_SHORT).show()
                 }
             }
             else {
-                showAlert("Rellene los campos")
+                showAlert(binding.edEmail.text.toString(),binding.edPass.text.toString())
             }
         }
 
@@ -133,14 +133,33 @@ class MainActivity : AppCompatActivity() {
 
     //************************************** Funciones auxiliares **************************************
     //*********************************************************************************
-    private fun showAlert(msg:String = "Se ha producido un error autenticando al usuario"){
+    private fun showAlert(email: String, password: String) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage(msg)
-        builder.setPositiveButton("Aceptar",null)
+
+        when {
+            email.isEmpty() || password.isEmpty() -> {
+                builder.setMessage("Por favor, rellena todos los campos.")
+            }
+            password.length < 8 -> {
+                builder.setMessage("La contraseña debe tener al menos 8 caracteres.")
+            }
+            else -> {
+                builder.setMessage("Usuario o contraseña incorrectos.")
+            }
+        }
+
+        builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
+
+        if (password.length < 8) {
+            // Si la contraseña es menor a 8 caracteres, no permitir que el usuario continúe.
+            dialog.setCancelable(false)
+        }
+
         dialog.show()
     }
+
 
 
     //*********************************************************************************

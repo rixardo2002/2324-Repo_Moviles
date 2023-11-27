@@ -12,12 +12,6 @@
 
         android:title="Opcion2" />
     <item
-        android:id="@+id/mnBusqueda"
-
-        android:title="Buscar"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/mnPerson"
         android:icon="@drawable/ic_logo_people"
         android:title="Person"
