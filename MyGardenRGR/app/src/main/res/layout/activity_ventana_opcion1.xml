@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VentanaOpcion1">
+
+    <!-- Primer botón para abrir enlace 1 -->
+
+    <!-- Segundo botón para abrir enlace 2 -->
+
+    <TextView
+        android:id="@+id/tvEnlacesYContacto"
+        android:layout_width="256dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="serif"
+        android:text="Enlaces y Contacto"
+        android:textAlignment="center"
+        android:textColor="@color/md_theme_dark_tertiaryContainer"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/huerto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAbrirEnlace1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="abrirEnlace1"
+        android:text="Abrir Enlace 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.399" />
+
+    <Button
+        android:id="@+id/btnEnviarCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="enviarCorreo"
+        android:text="Enviar Correo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbrirEnlace2" />
+
+    <Button
+        android:id="@+id/btnAbrirEnlace2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="abrirEnlace2"
+        android:text="Abrir Enlace 2"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviarCorreo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbrirEnlace1" />
+
+    <!-- Botón para enviar correo -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

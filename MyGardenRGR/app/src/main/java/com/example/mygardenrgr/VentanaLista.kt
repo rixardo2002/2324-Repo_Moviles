@@ -52,7 +52,7 @@ class VentanaLista : AppCompatActivity() {
     fun addProducto(view: View) {
         if (binding.edNombreL.text.toString().trim().isEmpty() || binding.edProcedenciaL.text.toString().trim().isEmpty()
             || binding.edCantidadL.text.toString().trim().isEmpty()){
-            Toast.makeText(this, "Campos en blanco", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.campos, Toast.LENGTH_SHORT).show()
         }
         else {
 
@@ -71,11 +71,11 @@ class VentanaLista : AppCompatActivity() {
             binding.edNombreL.requestFocus()
             //la L es por ser un Long lo que trae codigo.
             if(codigo!=-1L) {
-                Toast.makeText(this, "Producto insertada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.productoinsertado, Toast.LENGTH_SHORT).show()
                 listarProductos(view)
             }
             else
-                Toast.makeText(this, "Ya existe ese nombre. Producto no insertada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.existenombre, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -85,18 +85,18 @@ class VentanaLista : AppCompatActivity() {
         binding.edCantidadL.setText("")
         binding.edProcedenciaL.setText("")
         if (cant == 1) {
-            Toast.makeText(this, "Se borró el producto con ese nombre", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.borroproducto, Toast.LENGTH_SHORT).show()
             listarProductos(view)
         }
         else
-            Toast.makeText(this, "No existe un producto con ese nombre", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.noexisteproducto, Toast.LENGTH_SHORT).show()
 
     }
 
     fun modProducto(view: View) {
         if (binding.edNombreL.text.toString().trim().isEmpty() || binding.edCantidadL.text.toString().trim().isEmpty()
             || binding.edProcedenciaL.text.toString().trim().isEmpty()){
-            Toast.makeText(this, "Campos en blanco", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.campos, Toast.LENGTH_SHORT).show()
         }
         else {
             var prod: Producto = Producto(
@@ -108,9 +108,9 @@ class VentanaLista : AppCompatActivity() {
             )
             var cant = Conexion.modProducto(this, binding.edNombreL.text.toString(), prod)
             if (cant == 1)
-                Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.modificaciondatos, Toast.LENGTH_SHORT).show()
             else
-                Toast.makeText(this, "No existe un producto con ese nombre", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.noexisteproducto, Toast.LENGTH_SHORT).show()
         }
         listarProductos(view)
     }
@@ -122,7 +122,7 @@ class VentanaLista : AppCompatActivity() {
             binding.edProcedenciaL.setText(p.procedencia)
             binding.edCantidadL.setText(p.cantidad)
         } else {
-            Toast.makeText(this, "No existe un producto con ese nombre", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.noexisteproducto, Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -131,7 +131,7 @@ class VentanaLista : AppCompatActivity() {
         var listado:ArrayList<Producto> = Conexion.obtenerProductos(this)
 
         if (listado.size == 0){
-            Toast.makeText(this, "No existen más datos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.nomasdatos, Toast.LENGTH_SHORT).show()
         }
 
         miRecyclerView = binding.listaProductosRecycler as RecyclerView

@@ -18,8 +18,7 @@ class VentanaPrincipal : AppCompatActivity() {
 
         // Obtener los valores del Intent
         val email = intent.getStringExtra("email").toString()
-        val provider = intent.getStringExtra("provider").toString()
-        val nombre = intent.getStringExtra("nombre").toString()
+
 
         binding.toolbarPrincipal.title = "My Garden"
         binding.toolbarPrincipal.subtitle = email ?: ""
@@ -29,7 +28,7 @@ class VentanaPrincipal : AppCompatActivity() {
         setSupportActionBar(binding.toolbarPrincipal)
 
 
-        //en las siguientes líneas hago que aaprezca el botón de atrás (home) y genero su evento
+        //en las siguientes líneas hago que aparezca el botón de atrás (home) y genero su evento
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbarPrincipal.setNavigationOnClickListener {
             Toast.makeText(this,"Pulsado el retroceso", Toast.LENGTH_SHORT).show()
@@ -74,7 +73,9 @@ class VentanaPrincipal : AppCompatActivity() {
                 finish()
             }
             R.id.mnOp1 -> {
-                //irAOpcion1()
+                val miIntent = Intent(this, VentanaOpcion1::class.java)
+                miIntent.putExtra("Email", intent.getStringExtra("email").toString())
+                startActivity(miIntent)
             }
             R.id.mnOp2 -> {
                 //irAOpcion2()

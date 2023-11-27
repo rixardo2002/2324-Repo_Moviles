@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                         showAlert(binding.edEmail.text.toString(),binding.edPass.text.toString())
                     }
                 }.addOnFailureListener{
-                    Toast.makeText(this, "Conexión no establecida", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.conexion, Toast.LENGTH_SHORT).show()
                 }
             }
             else {
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                         showAlert(binding.edEmail.text.toString(),binding.edPass.text.toString())
                     }
                 }.addOnFailureListener{
-                    Toast.makeText(this, "Conexión no establecida", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.conexion, Toast.LENGTH_SHORT).show()
                 }
             }
             else {
@@ -135,21 +135,21 @@ class MainActivity : AppCompatActivity() {
     //*********************************************************************************
     private fun showAlert(email: String, password: String) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
+        builder.setTitle(R.string.error)
 
         when {
             email.isEmpty() || password.isEmpty() -> {
-                builder.setMessage("Por favor, rellena todos los campos.")
+                builder.setMessage(R.string.campos)
             }
             password.length < 8 -> {
-                builder.setMessage("La contraseña debe tener al menos 8 caracteres.")
+                builder.setMessage(R.string.valicontra)
             }
             else -> {
-                builder.setMessage("Usuario o contraseña incorrectos.")
+                builder.setMessage(R.string.incorrectoUsuContra)
             }
         }
 
-        builder.setPositiveButton("Aceptar", null)
+        builder.setPositiveButton(R.string.aceptar, null)
         val dialog: AlertDialog = builder.create()
 
         if (password.length < 8) {

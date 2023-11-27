@@ -80,9 +80,9 @@ class Home : AppCompatActivity() {
             db.collection("users")
                 .document(userEmail) // Será la clave del documento.
                 .set(user).addOnSuccessListener {
-                    Toast.makeText(this, "Almacenado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.almacenado, Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener{
-                    Toast.makeText(this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.ocurridoerror, Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -103,10 +103,10 @@ class Home : AppCompatActivity() {
                             .delete().toString() //lo importante aquí es el delete. el toString es pq además devuelve un mensaje con lo sucedido.
                     }
 
-                    Toast.makeText(this, "Eliminado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.eliminado, Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener{
-                    Toast.makeText(this, "No se ha encontrado el documento a eliminar", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.noencontradodocumento, Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -125,9 +125,9 @@ class Home : AppCompatActivity() {
                     mostrarDialogRecuperarDatos(binding.txtEmail.text.toString(), binding.txtProveedor.text.toString(), binding.edNombre.text.toString(),binding.edEdad.text.toString())
 
 
-                    Toast.makeText(this, "Recuperado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.recuperado, Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener {
-                    Toast.makeText(this, "Algo ha ido mal al recuperar", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.idomal, Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -139,7 +139,7 @@ class Home : AppCompatActivity() {
     private fun mostrarDialogRecuperarDatos(email: String,proovedor:String, nombre: String?, edad: String?) {
         // Crear un AlertDialog.Builder
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Datos Recuperados")
+        builder.setTitle(R.string.datosrecuperados)
 
         // Inflar el diseño personalizado para el contenido del diálogo
         val dialogLayout = layoutInflater.inflate(R.layout.dialog_recuperar_datos, null)
@@ -161,7 +161,7 @@ class Home : AppCompatActivity() {
         builder.setView(dialogLayout)
 
         // Agregar un botón "Aceptar" al diálogo
-        builder.setPositiveButton("Aceptar") { dialog, _ ->
+        builder.setPositiveButton(R.string.aceptar) { dialog, _ ->
             dialog.dismiss() // Cierra el diálogo al hacer clic en "Aceptar"
         }
 
@@ -175,13 +175,13 @@ class Home : AppCompatActivity() {
     // Función para mostrar el diálogo
     private fun mostrarDialogoIrDatosPersonales() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Ir al apartado de datos personales")
-        builder.setMessage("¿Desea ir al apartado de datos personales?")
-        builder.setPositiveButton("Sí") { _, _ ->
+        builder.setTitle(R.string.iradatospersonales)
+        builder.setMessage(R.string.deseair)
+        builder.setPositiveButton(R.string.si) { _, _ ->
             // Si la respuesta es sí, mostrar elementos relacionados con datos personales
             mostrarDatosPersonales()
         }
-        builder.setNegativeButton("No") { _, _ ->
+        builder.setNegativeButton(R.string.no) { _, _ ->
 
 
 

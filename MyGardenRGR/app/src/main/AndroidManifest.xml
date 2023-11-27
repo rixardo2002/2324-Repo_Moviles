@@ -13,9 +13,11 @@
         android:theme="@style/Theme.MyGardenRGR"
         tools:targetApi="31">
         <activity
+            android:name=".VentanaOpcion1"
+            android:exported="false" />
+        <activity
             android:name=".VentanaDetalle"
             android:exported="false" />
-
         <activity
             android:name=".VentanaLista"
             android:exported="false" />
