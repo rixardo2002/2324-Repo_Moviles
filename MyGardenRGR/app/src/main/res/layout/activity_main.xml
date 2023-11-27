@@ -65,7 +65,7 @@
         android:id="@+id/btLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
+        android:text="@string/iniciosesion"
         app:icon="@drawable/ic_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
         android:id="@+id/btRegistrar"
         android:layout_width="132dp"
         android:layout_height="48dp"
-        android:text="Registrar"
+        android:text="@string/registro"
         app:icon="@drawable/ic_registrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,8 +89,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="178dp"
+        android:layout_height="49dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="MY GARDEN"
         android:textColor="#A5F648"
@@ -107,7 +107,7 @@
         android:id="@+id/outlinedTextField"
         android:layout_width="301dp"
         android:layout_height="62dp"
-        android:hint="Email"
+        android:hint="@string/gmail"
         android:textColorHint="#1A7102"
         app:boxStrokeColor="#1D4E01"
         app:endIconMode="clear_text"
@@ -131,25 +131,25 @@
         android:id="@+id/outlinedTextField1"
         android:layout_width="301dp"
         android:layout_height="62dp"
-        android:hint="Password"
+        android:hint="@string/contra"
         android:textColorHint="#1A7102"
         app:boxStrokeColor="#1D4E01"
 
+        app:endIconMode="password_toggle"
         app:endIconTint="#1D4E01"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.415"
-        app:endIconMode="password_toggle">
+        app:layout_constraintVertical_bias="0.415">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#094E02"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="#094E02" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,14 +157,14 @@
         android:id="@+id/btGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Con Google"
+        android:text="@string/google"
         app:icon="@drawable/ic_google"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.778" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

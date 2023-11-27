@@ -43,6 +43,10 @@ class VentanaLista : AppCompatActivity() {
 
         contextoPrincipal = this
 
+        binding.btVolverr.setOnClickListener {
+            finish()
+        }
+
     }
 
     fun addProducto(view: View) {

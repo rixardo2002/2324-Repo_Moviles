@@ -9,7 +9,7 @@
         android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Correo Electrónico:"
+        android:text="@string/gmail"
         android:textStyle="bold" />
 
     <TextView
@@ -23,14 +23,14 @@
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre:"
+        android:text="@string/nombre"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edad:"
+        android:text="@string/edad"
         android:textStyle="bold" />
 
 </LinearLayout>

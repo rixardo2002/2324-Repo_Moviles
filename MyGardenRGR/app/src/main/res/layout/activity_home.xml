@@ -50,7 +50,7 @@
         android:id="@+id/btEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar"
+        android:text="@string/eliminar"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,7 @@
         android:id="@+id/btRecuperar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recuperar"
+        android:text="@string/recuperar"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
         android:id="@+id/btGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar"
+        android:text="@string/guardar"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,9 +87,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField"
-        android:layout_width="208dp"
-        android:layout_height="57dp"
-        android:hint="Nombre..."
+        android:layout_width="282dp"
+        android:layout_height="60dp"
+        android:hint="@string/nombre"
         android:textColorHint="#1A7102"
         android:visibility="gone"
         app:endIconMode="clear_text"
@@ -111,9 +111,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField1"
-        android:layout_width="208dp"
-        android:layout_height="57dp"
-        android:hint="Edad..."
+        android:layout_width="277dp"
+        android:layout_height="61dp"
+        android:hint="@string/edad"
         android:textColorHint="#1A7102"
         android:visibility="gone"
         app:endIconMode="clear_text"
@@ -136,7 +136,7 @@
         android:id="@+id/btCerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerrar sesión"
+        android:text="@string/cerrarsesion"
         app:icon="@drawable/ic_cerrarsesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,13 +145,11 @@
         app:layout_constraintVertical_bias="0.918" />
 
 
-
-
     <Button
         android:id="@+id/btVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver"
+        android:text="@string/volver"
         app:icon="@drawable/ic_volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

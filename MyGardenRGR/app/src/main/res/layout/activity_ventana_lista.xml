@@ -9,64 +9,96 @@
     tools:context=".VentanaLista">
 
 
-    <EditText
-        android:id="@+id/edNombreL"
-        android:layout_width="208dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:hint="Nombre..."
-        android:inputType="textPersonName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldUno"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:hint="@string/nombre"
+        android:textColorHint="#1A7102"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text"
+        app:endIconTint="#1D4E01"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023">
 
-    <EditText
-        android:id="@+id/edProcedenciaL"
-        android:layout_width="209dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:hint="Procedencia..."
-        android:inputType="textPersonName"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edNombreL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldDos"
+        android:layout_width="298dp"
+        android:layout_height="59dp"
+        android:hint="@string/procedencia"
+        android:textColorHint="#1A7102"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text"
+        app:endIconTint="#1D4E01"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edNombreL"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.125">
 
-    <EditText
-        android:id="@+id/edCantidadL"
-        android:layout_width="211dp"
-        android:layout_height="38dp"
-        android:ems="10"
-        android:hint="Cantidad..."
-        android:inputType="textPersonName"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edProcedenciaL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldTres"
+        android:layout_width="302dp"
+        android:layout_height="59dp"
+        android:hint="@string/cantidad"
+        android:textColorHint="#1A7102"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text"
+        app:endIconTint="#1D4E01"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edNombreL"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.223">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edCantidadL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:layout_width="391dp"
-        android:layout_height="88dp"
+        android:layout_width="387dp"
+        android:layout_height="79dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37">
+        app:layout_constraintVertical_bias="0.356">
 
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="addProducto"
-            android:text="Insertar"
+            android:text="@string/insertar"
             android:textSize="12sp" />
 
         <Button
@@ -74,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buscarProducto"
-            android:text="Consultar"
+            android:text="@string/consultar"
             android:textSize="12sp" />
 
         <Button
@@ -82,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="delProducto"
-            android:text="Eliminar"
+            android:text="@string/eliminar"
             android:textSize="12sp" />
 
         <Button
@@ -90,20 +122,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="modProducto"
-            android:text="Modificar"
+            android:text="@string/modificar"
             android:textSize="12sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaProductosRecycler"
-        android:layout_width="372dp"
-        android:layout_height="381dp"
+        android:layout_width="388dp"
+        android:layout_height="306dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintVertical_bias="0.807" />
 
     <TextView
         android:id="@+id/edEmailL"
@@ -116,5 +148,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.164" />
+
+    <Button
+        android:id="@+id/btVolverr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/volver"
+        app:icon="@drawable/ic_volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

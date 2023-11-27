@@ -74,7 +74,7 @@ class MiAdaptadorRecycler(var productos : ArrayList<Producto>, var  context: Con
         val CantidadProducto = view.findViewById(R.id.txtCantidad) as TextView
         val imagen = view.findViewById(R.id.imgImagen) as ImageView
 
-        val btnDetalleEspcifico = view.findViewById<Button>(R.id.btDetalleCard) as Button
+
 
         /**
          * Éste método se llama desde el método onBindViewHolder de la clase contenedora. Como no vuelve a crear un objeto
@@ -150,12 +150,6 @@ class MiAdaptadorRecycler(var productos : ArrayList<Producto>, var  context: Con
 
             }
 
-            btnDetalleEspcifico.setOnClickListener {
-                Log.e("Usuario", "Has pulsado el botón de ${producto}")
-                var inte: Intent = Intent(VentanaLista.contextoPrincipal, VentanaDetalle::class.java)
-                inte.putExtra("obj", producto)
-                ContextCompat.startActivity(VentanaLista.contextoPrincipal, inte, null)
-            }
         }
 
     }

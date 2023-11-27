@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGardenRGR</string>
+    <string name="title_activity_home">Home</string>
+    <string name="your_web_client_id">338976268196-snph3hodp90a3jj1kvni909ss697ap7p.apps.googleusercontent.com</string>
+    <string name="gmail">Gmail</string>
+    <string name="contra">Password</string>
+    <string name="registro">Registrer</string>
+    <string name="iniciosesion">Log In</string>
+    <string name="google">Log in with Google</string>
+    <string name="nombre">Name</string>
+    <string name="edad">Age</string>
+    <string name="guardar">Save</string>
+    <string name="eliminar">Delete</string>
+    <string name="recuperar">Recover</string>
+    <string name="volver">Return</string>
+    <string name="cerrarsesion">Sign Off</string>
+    <string name="lista">Here you have to make your list:</string>
+    <string name="procedencia">Origin</string>
+    <string name="modificar">Modify</string>
+    <string name="cantidad">Amount</string>
+    <string name="insertar">Insert</string>
+    <string name="consultar">Consult</string>
+    <string name="cerrar">Close</string>
+    <string name="nombreverdura">Name of the Vegetable</string>
+    <string name="vermas">See More</string>
+</resources>

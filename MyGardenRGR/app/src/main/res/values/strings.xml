@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">MyGardenRGR</string>
-    <string name="title_activity_home">Home</string>
+    <string name="title_activity_home">Casa</string>
     <string name="your_web_client_id">338976268196-snph3hodp90a3jj1kvni909ss697ap7p.apps.googleusercontent.com</string>
+    <string name="gmail">Gmail</string>
+    <string name="contra">Contraseña</string>
+    <string name="registro">Registrar</string>
+    <string name="iniciosesion">Iniciar Sesión</string>
+    <string name="google">Iniciar con Google</string>
+    <string name="nombre">Nombre</string>
+    <string name="edad">Edad</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="recuperar">Recuperar</string>
+    <string name="volver">Volver</string>
+    <string name="cerrarsesion">Cerrar Sesión</string>
+    <string name="lista">Aquí tienes para hacer tu lista:</string>
+    <string name="procedencia">Procedencia</string>
+    <string name="modificar">Modificar</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="insertar">Insertar</string>
+    <string name="consultar">Consultar</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="nombreverdura">Nombre de la Verdura</string>
+    <string name="vermas">Ver Más</string>
 </resources>
