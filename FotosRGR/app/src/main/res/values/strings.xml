@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FotosRGR</string>
+    <string name="open">Abrir</string>
+    <string name="gallery">Galeria</string>
+    <string name="save">Guardar\n</string>
+    <string name="image_saved">Imagen guardada</string>
+</resources>
