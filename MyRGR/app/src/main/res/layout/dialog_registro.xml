@@ -1,0 +1,122 @@
+<!-- res/layout/dialog_registro.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/md_theme_light_onTertiary">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="255dp"
+        android:layout_height="60dp"
+        android:hint="@string/nombre"
+        android:textColorHint="#002683"
+
+        app:endIconMode="clear_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroupTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbCliente"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="Cliente" />
+
+        <RadioButton
+            android:id="@+id/rbTrabajador"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:text="Trabajador" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupSexo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masculino" />
+
+        <RadioButton
+            android:id="@+id/rbFemenino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Femenino" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField1"
+        android:layout_width="257dp"
+        android:layout_height="60dp"
+        android:hint="@string/edad"
+        android:textColorHint="#002683"
+
+        app:endIconMode="clear_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField1222"
+        android:layout_width="257dp"
+        android:layout_height="60dp"
+        android:hint="Teléfono"
+        android:textColorHint="#002683"
+
+        app:endIconMode="clear_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar" />
+
+</LinearLayout>

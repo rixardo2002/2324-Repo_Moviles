@@ -1,0 +1,115 @@
+<!-- dialog_add_producto.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/md_theme_light_onTertiary">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldUno"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:hint="@string/nombre"
+        android:textColorHint="@color/blup"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edNombreL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldId"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:hint="ID"
+        android:textColorHint="@color/blup"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edIdL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldDos"
+        android:layout_width="298dp"
+        android:layout_height="59dp"
+        android:hint="@string/raza"
+
+        android:textColorHint="@color/blup"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edRazaL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldTres"
+        android:layout_width="302dp"
+        android:layout_height="59dp"
+        android:hint="@string/edad"
+        android:textColorHint="@color/blup"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edEdadL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#094E02" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/descripcion"
+        android:textColorHint="@color/blup"
+        app:boxStrokeColor="#1D4E01"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:minLines="4"
+            android:maxLines="10"
+            android:textColor="#094E02" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="onBtnAddImageClick"
+        android:text="@string/anadirimagen" />
+
+    <!-- Espacio flexible para empujar el botón hacia abajo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/guardar"
+        android:textSize="12sp" />
+</LinearLayout>

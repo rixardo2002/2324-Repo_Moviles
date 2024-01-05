@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_eliminar"
+        android:title="Eliminar" />
+    <item
+        android:id="@+id/menu_item_actualizar"
+        android:title="Actualizar" />
+    <!-- Agrega más elementos según sea necesario -->
+</menu>

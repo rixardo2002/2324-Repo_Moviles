@@ -71,6 +71,7 @@ object Conexion {
         return p
     }
 
+
     fun obtenerUsuario(contexto: AppCompatActivity, nombre: String): Usuario? {
 
         val admin = AdminSQLIteConexion(contexto, this.DATABASE_NAME, null, DATABASE_VERSION)

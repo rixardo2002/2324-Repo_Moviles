@@ -1,0 +1,57 @@
+<!-- res/layout/activity_ventana_examen.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".VentanaExamen">
+
+    <TextView
+        android:id="@+id/textViewPregunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pregunta"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonOpcion1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        style="@android:style/Animation.Activity"
+        android:text="Opción 1" />
+
+    <Button
+        android:id="@+id/buttonOpcion2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opción 2"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/buttonOpcion3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opción 3"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/buttonReiniciar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        android:text="@string/reiniciar" />
+
+    <Button
+        android:id="@+id/buttonEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        android:text="@string/eliminar" />
+
+</LinearLayout>
